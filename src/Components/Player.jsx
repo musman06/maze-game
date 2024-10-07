@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Box3, Vector3, Sphere } from "three";
 
 const Player = ({ xAxis, zAxis, playerRef, wallsRef, startPosition }) => {
-  const sphereRadius = 0.75;
+  const sphereRadius = 1;
   const [velocity] = useState(new Vector3(0, 0, 0)); //velocity vector object to handle speed and direction both at the same time
   const speed = 0.3; // speed of the player
 
@@ -17,7 +17,6 @@ const Player = ({ xAxis, zAxis, playerRef, wallsRef, startPosition }) => {
 
   //function to check if player collides with any obstacle present in the code
   const checkCollision = (newPosition) => {
-    if (!playerRef.current) return false;
     const playerSphere = new Sphere(
       new Vector3().copy(playerRef.current.position).add(newPosition),
       sphereRadius
@@ -79,9 +78,14 @@ const Player = ({ xAxis, zAxis, playerRef, wallsRef, startPosition }) => {
   });
 
   return (
-    <mesh ref={playerRef} position={startPosition} castShadow={true}>
+    <mesh
+      ref={playerRef}
+      position={startPosition}
+      castShadow={true}
+      receiveShadow={true}
+    >
       <sphereGeometry args={[sphereRadius, 10, 10]} />
-      <meshPhongMaterial color="orange" />
+      <meshPhongMaterial color="orange" shininess={150} flatShading={true} />
     </mesh>
   );
 };

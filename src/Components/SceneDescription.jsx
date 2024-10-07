@@ -5,6 +5,7 @@ import { Vector3 } from "three";
 
 const SceneDescription = ({ playerRef, startPosition }) => {
   const [playerPosition, setPlayerPosition] = useState(new Vector3());
+  const epsilon = 1.5;
   useFrame(() => {
     if (!playerRef.current) return;
     setPlayerPosition(() => {
@@ -47,9 +48,13 @@ const SceneDescription = ({ playerRef, startPosition }) => {
         Blue: Z-axis
       </Text>
       <Text
-        position={[43, 0, -35]}
+        position={[43, 2, -35]}
         fontSize={3}
-        color={`${playerPosition.equals(startPosition) ? "red" : "#f1f5f8"}`}
+        color={`${
+          playerPosition.distanceTo(startPosition) <= epsilon
+            ? "red"
+            : "#f1f5f8"
+        }`}
         anchorX="left"
         anchorY="middle"
         scale={[-1, 1, 1]}
