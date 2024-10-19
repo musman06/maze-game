@@ -1,0 +1,12 @@
+1.) used extensively Three.js documentation as well as React Fiber documentation to implement the various functionalities of the game
+    Three.js documentation: https://threejs.org/manual/#en/fundamentals
+    React Fiber documentation: https://r3f.docs.pmnd.rs/getting-started/introduction
+
+2.) read the fundamentals article on three.js documentation and implemented the code in it using React Fiber documentation. Fundamentals section helped me with most of the basic
+    fundamentals of three.js such as primitives, mesh, material, textures, lights, cameras etc.
+
+3.) collision detection using bounding boxes
+    https://jainmanshu.medium.com/exploring-collision-detection-in-three-js-82dc95a383f4
+
+4.) Javascript Math operations
+    https://www.w3schools.com/js/js_random.asp
